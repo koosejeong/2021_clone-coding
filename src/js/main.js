@@ -75,4 +75,18 @@ sliderTemp.addEventListener('transitionend', () => {
 buttons.forEach(bnt => bnt.addEventListener('click', btnCheck));
 options.forEach(opt => opt.addEventListener('click', optionFucn));
 
+function autoSlide() {
+    slide();
+    go = requestAnimationFrame(autoSlide);
+}
+autoSlide();
+
+function stopSlide() {
+    cancelAnimationFrame(go);
+}
+
+mainKV.addEventListener('mouseout', function(){
+    stopSlide();
+});
+
 
